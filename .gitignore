@@ -49,6 +49,7 @@ build/
 
 # CMake
 cmake-build-*/
+*.cmake
 
 config*
 Makefile
@@ -61,9 +62,17 @@ docs/*.png
 docs/*-ref.rst
 docs/
 
+*.lock
+*.txt
+*.json
+
 .DS_Store
 .idea
 *~
+
+
+## For CONAN
+!conanfile.txt
 
 # Compile and link flag files
 bindings/python/*flags

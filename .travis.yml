@@ -7,8 +7,15 @@ before_script:
 - sudo apt install libboost-test-dev -y
 - sudo apt install doxygen -y
 - sudo apt install graphviz -y
+- sudo apt install python3
+- sudo apt install python3-pip
+- sudo apt install python3-setuptools
+- sudo pip3 install --upgrade pip
+- sudo pip3 install --user conan
+- conan user
 
 script:
+- conan install .
 - doxygen Doxyfile
 - cmake .
 - cmake --build .
@@ -28,5 +35,5 @@ deploy:
   on:
     branch: master
   script:
-  - curl -T bayan-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -ujohn-jasper-doe:$BINTRAY_API_KEY "https://api.bintray.com/content/john-jasper-doe/otus-cpp/homeworks/bayan/$TRAVIS_BUILD_NUMBER/bayan-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=xenial;deb_component=main;deb_architecture=amd64;publish=1"
+  - curl -T range-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -ujohn-jasper-doe:$BINTRAY_API_KEY "https://api.bintray.com/content/john-jasper-doe/otus-cpp/homeworks/range/$TRAVIS_BUILD_NUMBER/range-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=xenial;deb_component=main;deb_architecture=amd64;publish=1"
 

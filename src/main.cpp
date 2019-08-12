@@ -10,34 +10,25 @@
 
 #include "io.hpp"
 #include "utils.hpp"
-#include "range/v3/all.hpp"
 
-auto filter_accept_check_any(const ipaddr_t &a) {
-  return ranges::find(a, static_cast<uint32_t>(46)) != ranges::end(a);
-}
-
-auto filter_accept_check_any2(const ipaddr_t &a) {
-  return ranges::find(a, static_cast<uint32_t>(1)) == ranges::begin(a);
-}
-
-
-auto filter_accept_check_any3(const ipaddr_t &a) {
-  return ranges::equal(a, static_cast<uint32_t>(1)) == ranges::begin(a);
-}
-
-
+/* ------------------------------------------------------------------------- */
 int main()
 {
   ip_pool_t ip_pool;
   get_from_stream(ip_pool);
   sort(ip_pool);
+  ip_print(ip_pool);
 
-  ip_pool_t dd;
-  for (ipaddr_t &ip : ip_pool) {
-    if (filter_accept_check_any2(ip))
-      dd.push_back(ip);
-  }
+  ip_pool_t ip_pool_filtered;
+  ip_pool_filtered = filter(ip_pool, static_cast<uint32_t>(1));
+  ip_print(ip_pool_filtered);
 
-  ip_print(dd);
+  ip_pool_filtered = filter(ip_pool,
+                            static_cast<uint32_t>(46),
+                            static_cast<uint32_t>(70));
+  ip_print(ip_pool_filtered);
+
+  ip_pool_filtered = filter_any(ip_pool, 46);
+  ip_print(ip_pool_filtered);
   return EXIT_SUCCESS;
 }

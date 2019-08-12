@@ -12,30 +12,21 @@
 
 
 /* ------------------------------------------------------------------------- */
-bool helper_filter_any(const ipaddr_t &pool, uint32_t val);
+/**
+ * @brief helper_filter_any
+ * @param addr[in] - IP-address.
+ * @param val[in] - value for comparison.
+ * @return "true" - if the address you are looking for is "false" - otherwise.
+ */
+bool helper_filter_any(const ipaddr_t &addr, uint32_t val);
 
-
-/* ------------------------------------------------------------------------- */
-template <typename... Args>
-bool helper_filter(const ipaddr_t &addr, Args... args)
-{
-  static_assert(sizeof...(Args) <= 4,
-                "filter gets 4 parameters max + ip_pool");
-
-  ipaddr_t a{args...};
-  if (a.size() > addr.size())
-    return false;
-
-  auto it_a = a.begin();
-  auto it_addr = addr.begin();
-  for (; it_a != a.end(); ++it_a, ++it_addr) {
-    if (*it_a != *it_addr)
-      return false;
-  }
-
-  return true;
-}
-
+/**
+ * @brief helper_filter
+ * @param addr[in] - IP-address.
+ * @param tmp_addr[in] - value for comparison.
+ * @return "true" - if the address you are looking for is "false" - otherwise.
+ */
+bool helper_filter(const ipaddr_t &addr, const ipaddr_t &tmp_addr);
 
 
 

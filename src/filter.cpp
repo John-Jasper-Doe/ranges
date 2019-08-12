@@ -14,8 +14,23 @@
 
 
 /* ------------------------------------------------------------------------- */
-bool helper_filter_any(const ipaddr_t &pool, uint32_t val)
+bool helper_filter_any(const ipaddr_t &addr, uint32_t val)
 {
-  return ranges::find(pool, val) != ranges::end(pool);
+  return ranges::find(addr, val) != ranges::end(addr);
 }
 
+/* ------------------------------------------------------------------------- */
+bool helper_filter(const ipaddr_t &addr, const ipaddr_t &tmp_addr)
+{
+  if (tmp_addr.size() > addr.size())
+    return false;
+
+  auto it_tmp_addr = tmp_addr.begin();
+  auto it_addr = addr.begin();
+  for (; it_tmp_addr != tmp_addr.end(); ++it_tmp_addr, ++it_addr) {
+    if (*it_tmp_addr != *it_addr)
+      return false;
+  }
+
+  return true;
+}

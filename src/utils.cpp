@@ -11,7 +11,8 @@
 #include "utils.hpp"
 
 
-std::vector<std::string> split(const std::string &str, char div)
+/* ------------------------------------------------------------------------- */
+ipaddr_str_t split(const std::string &str, char div)
 {
   std::vector<std::string> result;
 
@@ -27,5 +28,16 @@ std::vector<std::string> split(const std::string &str, char div)
 
   result.push_back(str.substr(start));
 
+  return result;
+}
+
+/* ------------------------------------------------------------------------- */
+ip_pool_t filter_any(const ip_pool_t &pool, uint32_t val)
+{
+  ip_pool_t result;
+  for (const ipaddr_t &ip : pool) {
+    if (helper_filter_any(ip, val))
+      result.push_back(ip);
+  }
   return result;
 }

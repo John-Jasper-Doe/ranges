@@ -2,7 +2,9 @@ dist: xenial
 language: cpp
 
 before_script:
+- sudo add-apt-repository ppa:jonathonf/gcc-7.1
 - sudo apt update
+- sudo apt install gcc-7 g++-7
 - sudo apt install libboost-test-dev -y
 - sudo apt install gcc-7
 - sudo apt install g++-7

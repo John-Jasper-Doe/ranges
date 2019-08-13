@@ -1,5 +1,4 @@
 dist: xenial
-
 language: cpp
 
 before_script:
@@ -10,8 +9,8 @@ before_script:
 - sudo apt install python3
 - sudo apt install python3-pip
 - sudo apt install python3-setuptools
-- sudo pip3 install --upgrade pip
-- sudo pip3 install --user conan
+- pip3 install --upgrade pip
+- pip3 install --user conan
 - conan user
 
 script:

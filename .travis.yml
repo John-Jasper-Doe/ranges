@@ -1,13 +1,12 @@
 dist: xenial
 language: cpp
-compiler: clang
 
 before_script:
+- sudo add-apt-repository ppa:jonathonf/gcc-7.1 -y
 - sudo apt update
 - sudo apt install libboost-test-dev -y
-- sudo apt install llvm-toolchain-xenial-7
-- sudo apt install libc++-7-dev
-- sudo apt install libc++abi-7-dev
+- sudo apt install gcc-7 -y
+- sudo apt install g++-7 -y
 - sudo apt install doxygen -y
 - sudo apt install graphviz -y
 - sudo apt install python3 -y

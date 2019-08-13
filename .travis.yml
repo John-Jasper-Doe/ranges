@@ -2,17 +2,16 @@ dist: xenial
 language: cpp
 
 before_script:
-- sudo add-apt-repository ppa:jonathonf/gcc-7.1
+- sudo add-apt-repository ppa:jonathonf/gcc-7.1 -y
 - sudo apt update
-- sudo apt install gcc-7 g++-7
 - sudo apt install libboost-test-dev -y
-- sudo apt install gcc-7
-- sudo apt install g++-7
+- sudo apt install gcc-7 -y
+- sudo apt install g++-7 -y
 - sudo apt install doxygen -y
 - sudo apt install graphviz -y
-- sudo apt install python3
-- sudo apt install python3-pip
-- sudo apt install python3-setuptools
+- sudo apt install python3 -y
+- sudo apt install python3-pip -y
+- sudo apt install python3-setuptools -y
 - pip3 install --upgrade pip
 - pip3 install --user conan
 - conan user

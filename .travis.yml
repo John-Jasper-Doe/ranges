@@ -17,9 +17,9 @@ before_script:
 - conan user
 
 script:
-- conan install .
 - doxygen Doxyfile
-- cmake .
+- conan install .
+- CXXFLAGS="-stdlib=libc++" cmake .
 - cmake --build .
 - cmake --build . --target package
 

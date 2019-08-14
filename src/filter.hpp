@@ -7,6 +7,9 @@
  ******************************************************************************
  */
 
+#ifndef FILTER_HPP_
+#define FILTER_HPP_
+
 
 #include "defs.hpp"
 
@@ -29,4 +32,4 @@ bool helper_filter_any(const ipaddr_t &addr, uint32_t val);
 bool helper_filter(const ipaddr_t &addr, const ipaddr_t &tmp_addr);
 
 
-
+#endif /* FILTER_HPP_ */

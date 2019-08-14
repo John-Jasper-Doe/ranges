@@ -8,6 +8,9 @@
  */
 
 
+#ifndef DEFS_HPP_
+#define DEFS_HPP_
+
 #include <string>
 #include <vector>
 
@@ -22,3 +25,6 @@ using ipaddr_t = std::vector<uint32_t>;
 
 /** The poll IP address. */
 using ip_pool_t = std::vector<ipaddr_t>;
+
+
+#endif /* DEFS_HPP_ */

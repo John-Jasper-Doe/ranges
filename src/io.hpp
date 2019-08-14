@@ -7,6 +7,8 @@
  ******************************************************************************
  */
 
+#ifndef IO_HPP_
+#define IO_HPP_
 
 #include "defs.hpp"
 
@@ -25,3 +27,5 @@ bool get_from_stream(ip_pool_t &data);
  */
 void ip_print(ip_pool_t &data);
 
+
+#endif /* IO_HPP_ */

@@ -18,11 +18,9 @@ before_script:
 
 script:
 - doxygen Doxyfile
-- conan profile show default
-- conan profile update settings.compiler.version=7 default
 - conan install .
-- CXXFLAGS="-std=c++17" cmake .
-- CXXFLAGS="-std=c++17" cmake --build .
+- cmake .
+- cmake --build .
 - cmake --build . --target package
 
 deploy:

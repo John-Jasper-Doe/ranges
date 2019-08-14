@@ -34,6 +34,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/bin")
 file(GLOB DIR_ROOT_SRCS src/*.cpp)
 file(GLOB DIR_ROOT_HDRS src/*.hpp)
 
+include_directories(${CONAN_INCLUDE_DIRS})
+
 # make executable file for application
 add_executable(${PROJECT_NAME} ${DIR_ROOT_SRCS} ${DIR_ROOT_HDRS})
 

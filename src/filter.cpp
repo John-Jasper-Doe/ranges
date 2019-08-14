@@ -34,3 +34,15 @@ bool helper_filter(const ipaddr_t &addr, const ipaddr_t &tmp_addr)
 
   return true;
 }
+
+/* ------------------------------------------------------------------------- */
+ip_pool_t filter_any(const ip_pool_t &pool, uint32_t val)
+{
+  ip_pool_t result;
+  for (const ipaddr_t &ip : pool) {
+    if (helper_filter_any(ip, val))
+      result.push_back(ip);
+  }
+  return result;
+}
+

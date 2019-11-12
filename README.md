@@ -6,5 +6,3 @@
 ## Otus Developer C++ Course
 Homework "RANGE"
 Manual: https://john-jasper-doe.github.io/Lab3/index.html
-
-

@@ -20,16 +20,17 @@ int main()
   sort(ip_pool);
   ip_print(ip_pool);
 
-  ip_pool_t ip_pool_filtered;
-  ip_pool_filtered = filter(ip_pool, static_cast<uint32_t>(1));
-  ip_print(ip_pool_filtered);
+   ip_pool_t ip_pool_filtered;
+   ip_pool_filtered = filter(ip_pool, static_cast<uint32_t>(1));
+   ip_print(ip_pool_filtered);
 
-  ip_pool_filtered = filter(ip_pool,
-                            static_cast<uint32_t>(46),
-                            static_cast<uint32_t>(70));
-  ip_print(ip_pool_filtered);
+   ip_pool_filtered = filter(ip_pool,
+                             static_cast<uint32_t>(46),
+                             static_cast<uint32_t>(70));
+   ip_print(ip_pool_filtered);
 
-  ip_pool_filtered = filter_any(ip_pool, 46);
-  ip_print(ip_pool_filtered);
+   ip_pool_filtered = filter_any(ip_pool, 46);
+   ip_print(ip_pool_filtered);
+
   return EXIT_SUCCESS;
 }

@@ -12,25 +12,10 @@
 
 
 #include "defs.hpp"
+#include <range/v3/algorithm/equal.hpp>
 
 
 /* ------------------------------------------------------------------------- */
-/**
- * @brief helper_filter_any
- * @param addr[in] - IP-address.
- * @param val[in] - value for comparison.
- * @return "true" - if the address you are looking for is "false" - otherwise.
- */
-bool helper_filter_any(const ipaddr_t &addr, uint32_t val);
-
-/**
- * @brief helper_filter
- * @param addr[in] - IP-address.
- * @param tmp_addr[in] - value for comparison.
- * @return "true" - if the address you are looking for is "false" - otherwise.
- */
-bool helper_filter(const ipaddr_t &addr, const ipaddr_t &tmp_addr);
-
 /**
  * @brief filter_any
  * @param pool[in] - the pool for filtered.
@@ -50,14 +35,13 @@ ip_pool_t filter_any(const ip_pool_t &pool, uint32_t val);
 template <typename... Args>
 ip_pool_t filter(const ip_pool_t &pool, Args... args)
 {
-  static_assert(sizeof...(Args) <= 4,
-                "filter gets 4 parameters max + ip_pool");
+  static_assert(sizeof...(Args) <= 4, "filter gets 4 parameters max + ip_pool");
 
   ip_pool_t result;
   ipaddr_t tmp_array{args...};
 
   for (const ipaddr_t &ip : pool) {
-    if (helper_filter(ip, tmp_array))
+    if (ranges::equal(tmp_array.begin(), tmp_array.end(), ip.begin()))
       result.push_back(ip);
   }
   return result;

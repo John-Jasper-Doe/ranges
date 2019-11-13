@@ -20,6 +20,7 @@ find_package(Threads)
 
 # Conan ...
 include(conanbuildinfo.cmake)
+#include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
 # Output binary

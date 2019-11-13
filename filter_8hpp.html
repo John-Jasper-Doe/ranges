@@ -93,12 +93,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>The filter function.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="defs_8hpp_source.html">defs.hpp</a>&quot;</code><br />
+<code>#include &lt;range/v3/algorithm/equal.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for filter.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="filter_8hpp__incl.png" border="0" usemap="#src_2filter_8hpp" alt=""/></div>
 <map name="src_2filter_8hpp" id="src_2filter_8hpp">
-<area shape="rect" id="node2" href="defs_8hpp.html" title="Definition on this project. " alt="" coords="39,80,116,107"/>
+<area shape="rect" id="node2" href="defs_8hpp.html" title="Definition on this project. " alt="" coords="39,87,116,114"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -122,12 +123,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a6c34ea40f4a5b3087f47838761dd4512"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defs_8hpp.html#affc574f759e844bb7b11a0d01ceecc53">ip_pool_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="filter_8hpp.html#a6c34ea40f4a5b3087f47838761dd4512">filter_any</a> (const <a class="el" href="defs_8hpp.html#affc574f759e844bb7b11a0d01ceecc53">ip_pool_t</a> &amp;pool, uint32_t val)</td></tr>
 <tr class="memdesc:a6c34ea40f4a5b3087f47838761dd4512"><td class="mdescLeft">&#160;</td><td class="mdescRight">filter_any  <a href="#a6c34ea40f4a5b3087f47838761dd4512">More...</a><br /></td></tr>
 <tr class="separator:a6c34ea40f4a5b3087f47838761dd4512"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5664790c14b707e2c2feb6f9246c5185"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="filter_8hpp.html#a5664790c14b707e2c2feb6f9246c5185">helper_filter</a> (const <a class="el" href="defs_8hpp.html#aeb46d39787a5fb589690276b2f0743f4">ipaddr_t</a> &amp;addr, const <a class="el" href="defs_8hpp.html#aeb46d39787a5fb589690276b2f0743f4">ipaddr_t</a> &amp;tmp_addr)</td></tr>
-<tr class="memdesc:a5664790c14b707e2c2feb6f9246c5185"><td class="mdescLeft">&#160;</td><td class="mdescRight">helper_filter  <a href="#a5664790c14b707e2c2feb6f9246c5185">More...</a><br /></td></tr>
-<tr class="separator:a5664790c14b707e2c2feb6f9246c5185"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afee0ac1c709dca8c9d101391fc50fcbb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="filter_8hpp.html#afee0ac1c709dca8c9d101391fc50fcbb">helper_filter_any</a> (const <a class="el" href="defs_8hpp.html#aeb46d39787a5fb589690276b2f0743f4">ipaddr_t</a> &amp;addr, uint32_t val)</td></tr>
-<tr class="memdesc:afee0ac1c709dca8c9d101391fc50fcbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">helper_filter_any  <a href="#afee0ac1c709dca8c9d101391fc50fcbb">More...</a><br /></td></tr>
-<tr class="separator:afee0ac1c709dca8c9d101391fc50fcbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The filter function. </p>
@@ -205,78 +200,6 @@ template&lt;typename... Args&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>IP address equal to value. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a5664790c14b707e2c2feb6f9246c5185"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool helper_filter </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="defs_8hpp.html#aeb46d39787a5fb589690276b2f0743f4">ipaddr_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="defs_8hpp.html#aeb46d39787a5fb589690276b2f0743f4">ipaddr_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>tmp_addr</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>helper_filter </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">addr[in]</td><td>- IP-address. </td></tr>
-    <tr><td class="paramname">tmp_addr[in]</td><td>- value for comparison. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" - if the address you are looking for is "false" - otherwise. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="afee0ac1c709dca8c9d101391fc50fcbb"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool helper_filter_any </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="defs_8hpp.html#aeb46d39787a5fb589690276b2f0743f4">ipaddr_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>val</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>helper_filter_any </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">addr[in]</td><td>- IP-address. </td></tr>
-    <tr><td class="paramname">val[in]</td><td>- value for comparison. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" - if the address you are looking for is "false" - otherwise. </dd></dl>
 
 </div>
 </div>

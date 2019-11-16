@@ -2,6 +2,9 @@
 #include "utils.hpp"
 
 #include <iostream>
+#include <range/v3/algorithm/for_each.hpp>
+#include <range/v3/view/transform.hpp>
+#include <range/v3/view/intersperse.hpp>
 
 
 /* ------------------------------------------------------------------------- */
@@ -28,13 +31,9 @@ bool get_from_stream(ip_pool_t &data)
 void ip_print(ip_pool_t &data)
 {
   for (const auto &ip : data) {
-    auto ip_part_it = ip.cbegin();
-    for (; ip_part_it != ip.cend(); ++ip_part_it) {
-      if (ip_part_it != ip.cbegin())
-        std::cout << ".";
+    ranges::for_each(ip | ranges::view::transform([](const auto &i) { return std::to_string(i); }) | ranges::view::intersperse("."),
+                     [](auto ip_part) { std::cout << ip_part; });
 
-      std::cout << *ip_part_it;
-    }
     std::cout << std::endl;
   }
 }
